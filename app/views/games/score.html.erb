@@ -1,0 +1,11 @@
+<h1>Result</h1>
+
+<ol>
+  <li>Your word: <%= @word %></li>
+  <li>Time elapsed: <%= @result[:time] %></li>
+  <li>Your score: <%= @result[:score] %></li>
+  <li>Wise words: <%= @result[:message] %></li>
+</ol>
+
+
+<%= link_to("Play again", "/new") %>

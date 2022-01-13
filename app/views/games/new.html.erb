@@ -1,7 +1,25 @@
-<h1>New Game</h1>
 
-<ul>
-<% @letters.each do |letter| %>
-<li><%= letter.upcase %></li>
-<% end %>
-</ul>
+<div id="game">
+  <h1>New Game</h1>
+
+  <div id="letters">
+    <ul>
+    <% @letters.each do |letter| %>
+      <li><%= letter.upcase %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <p>What is the longest word you can find?</p>
+    <form action="/score" method="post">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" name="word" aria-describedby="button-addon2">
+        <input type="hidden" name="grid" value="<%= @letters %>">
+        <input type="hidden" name="start_time" value="<%= @start_time %>">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-outline-secondary" type="button" id="button-addon2">Play</button>
+        </div>
+      </div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+</div>
